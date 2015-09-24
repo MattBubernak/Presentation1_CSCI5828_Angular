@@ -19,6 +19,13 @@
 * It extends HTML to present dynamic content through **2-way data binding**. 
     1. Unlike traditional MVC architecture where the one way data binding occurs, in AngularJS there is automatic synchronization of data between Model and View in the MVC architecture. Changes to the View is reflected in the Model and vice versa.
 
+# Basic Concepts - AngularJS
+* Template: HMTL file with additional markup
+* Directives: extend HTML with custom elements and attributes
+* View: what is seen by the user
+* Model: data that is displayed in the View
+* Controller: the business logic behind the View
+
 # Basic AngularJS - Directives (I)
 
 ... add more directives here.
