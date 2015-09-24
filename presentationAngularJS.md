@@ -25,7 +25,7 @@
 * View: what is seen by the user
 * Model: data that is displayed in the View
 * Controller: the business logic behind the View
-
+* Scope: 
 # Basic AngularJS - Directives (I)
 
 ... add more directives here.
