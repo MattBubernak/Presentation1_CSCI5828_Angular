@@ -19,6 +19,8 @@
 * It extends HTML to present dynamic content through **2-way data binding**. 
     1. Unlike traditional MVC architecture where the one way data binding occurs, in AngularJS there is automatic synchronization of data between Model and View in the MVC architecture. Changes to the View is reflected in the Model and vice versa.
 
+[image]
+
 # Basic Terminology - AngularJS
 * Template: HMTL file with additional markup
 * Directives: extend HTML elements with custom elements and attributes
@@ -27,14 +29,23 @@
 * Controller: the business logic behind the View
 * Scope: context where the Model is stores
 
-# Basic AngularJS Directives (I)
+# Basic AngularJS Directives
 * ng-app: Declares the root element of an AngularJS application, under which directives can be used to declare bindings and define behavior.
 * ng-bind: Sets the text of a DOM element to the value of an expression. For example, `<span ng-bind="name"></span>` will display the value of ‘name’ inside the span element.
 * ng-model: Similar to ng-bind but establishes a two-way data binding between the view and the scope.
 * ng-repeat: Instantiate an element once per item from a collection.
  <Can add more directives depending on what is used in the code...>
 
-... add more directives here.
+#Using Project code demonstrate AngularJS double data binding here... 
 
-... few examples
+
+#Using Project code demonstrate the use of MVC architecture in AngularJS here ... 
+
+#Using code explain filters here
+In AngularJS, the filter formats the value of an expression to display to the user. Filters can be used in controllers or services. 
+
+#Use code to explain the ease of unit testing using AngularJS
+
+#If any directives are custom define, use that example
+
 
