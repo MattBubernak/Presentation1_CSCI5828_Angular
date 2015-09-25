@@ -22,7 +22,7 @@
 
 ![2-way data binding. Source: https://docs.angularjs.org/guide/databinding](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/Two_Way_Data_Binding.png)
 
-asdfaf afdafadsf asdfasdf Image source: https://docs.angularjs.org/guide/databinding
+Image source: https://docs.angularjs.org/guide/databinding
 
 
 
