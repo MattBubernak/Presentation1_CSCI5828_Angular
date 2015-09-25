@@ -24,8 +24,6 @@
 
 Image source: https://docs.angularjs.org/guide/databinding
 
-
-
 # Basic Terminology - AngularJS
 * Template: HMTL file with additional markup
 * Directives: extend HTML elements with custom elements and attributes
@@ -51,6 +49,6 @@ In AngularJS, the filter formats the value of an expression to display to the us
 
 #Use code to explain the ease of unit testing using AngularJS
 
-#If any directives are custom define, use that example
+#If any directives are custom defined in the code, use that example
 
-
+#If any services are used in the code, use that example here
