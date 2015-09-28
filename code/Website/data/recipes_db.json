@@ -1,0 +1,7 @@
+[
+{ "name" : "chamomile peppermint",
+  "id" : "1",
+  "ingredients" : ["1","2"],
+	"description" : "Makes ur eyes water, but puts ya to sleep.",
+	"image_name" : "champeppermint.png",
+},

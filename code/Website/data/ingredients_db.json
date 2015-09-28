@@ -1,0 +1,12 @@
+[
+{ "name" : "peppermint",
+  "id" : "1",
+	"description" : "Makes ur eyes water",
+	"image_name" : "peppermint.png",
+},
+{ "name" : "chamomile",
+  "id" : "2",
+	"description" : "Puts ya to sleep. ",
+	"image_name" : "cham.png",
+}
+]
