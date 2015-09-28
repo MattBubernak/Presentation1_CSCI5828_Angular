@@ -1,12 +1,14 @@
 [
-{ "name" : "peppermint",
-  "id" : "1",
-	"description" : "Makes ur eyes water",
-	"image_name" : "peppermint.png",
+{ 
+"name" : "peppermint",
+"description" : "it's pretty minty"
 },
-{ "name" : "chamomile",
-  "id" : "2",
-	"description" : "Puts ya to sleep. ",
-	"image_name" : "cham.png",
+{ 
+"name" : "chamomile",
+"description" : "it'll put ya to sleep"
+},
+{ 
+"name" : "ginger root",
+"description" : "good stuff"
 }
 ]

@@ -1,1 +1,13 @@
-<h1>This is create</h1>
+<h1>Create a new recipe!</h1>
+
+<div ng-app="myApp" ng-controller="formController">
+  <form novalidate>
+    Recipe Name:<br>
+    <input type="text" ng-model="newRecip.name"><br>
+    Recipe Description:<br>
+    <input type="text" ng-model="newRecip.description">
+    <br><br>
+    <button ng-click="reset()">RESET</button>
+    <button ng-click="submit()">SUBMIT</button>
+  </form>
+</div>
