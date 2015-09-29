@@ -1,4 +1,4 @@
-<h1>Learn about the ingredients</h1>
+<h1 style="text-align:left">Learn about the ingredients</h1>
 Search: <input ng-model="nameSearchInput" style="margin-bottom:20px">
 <div>
     <div class="panel panel-default" ng-repeat="x in ingredients | filter:{name:nameSearchInput} | orderBy: 'name'" style="width:50%">

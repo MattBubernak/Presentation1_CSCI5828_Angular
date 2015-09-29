@@ -1,22 +1,27 @@
-<h1>Learn about the blends</h1>
-<h3>Tell us what ingredients you have, and we'll tell you what blends you can make!</h3>
-Search: <input ng-model="nameSearchInput" style="margin-bottom:20px">
-<ul ng-repeat="x in ingredients | filter:{name:nameSearchInput} | orderBy: 'name' | limitTo:5" style="width:50%">
-	<li>
-		<p>{{x.name}}</p>
-		<img src="img/ingredient/{{x.img}}" alt="..." height="50" width="50">
-		<input type="checkbox" ng-model="test">
-	</li>
-</ul>
+<h1>Learn about the recipes</h1>
+<div class="row">
+	<div class="col-md-5 " style="border-right: 1px solid #ccc;">
+		<h3>What ingredients do you have?</h3>
+		Search: <input ng-model="nameSearchInput" style="margin-bottom:20px">
+		<ul ng-repeat="x in ingredients | filter:{name:nameSearchInput} | orderBy: 'name' | limitTo:5" style="width:50%">
+			<li>
+				<p>{{x.name}}</p>
+				<img src="img/ingredient/{{x.img}}" alt="..." height="50" width="50">
+				<input type="checkbox" ng-model="test">
+			</li>
+		</ul>
+	</div>
 
-
-<h3>You can make these blends:</h3>
-<div>
-    <div class="panel panel-default" ng-repeat="x in recipes | filter:{name:nameSearchInput} | orderBy: 'name'" style="width:50%">
-		<div class="panel-body">
-			<h3>{{x.name}}</h3>
-			<img src="img/recipe/{{x.img}}" alt="..." height="100" width="100">
+	<div class="col-md-7">
+		<h3>You can make these blends:</h3>
+		<div>
+		    <div class="panel panel-default" ng-repeat="x in recipes | orderBy: 'name'" style="width:50%">
+				<div class="panel-body">
+					<h3>{{x.name}}</h3>
+					<img src="img/recipe/{{x.img}}" alt="..." height="100" width="100">
+				</div>
+				<div class="panel-footer"><p>{{x.description}}</p></div>
+		    </div>
 		</div>
-		<div class="panel-footer"><p>{{x.description}}</p></div>
-    </div>
-</div>
+	</div>
+</row>
