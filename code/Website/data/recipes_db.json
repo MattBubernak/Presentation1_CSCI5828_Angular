@@ -2,13 +2,13 @@
 { "name" : "chamomile peppermint",
   "id" : "1",
   "ingredients" : ["1","2"],
-	"description" : "Makes ur eyes water, but puts ya to sleep.",
-	"img" : "champeppermint.png",
+  "description" : "Makes ur eyes water, but puts ya to sleep.",
+  "img" : "chamomilepeppermint.jpg"
 },
 { "name" : "Matt's Chai",
   "id" : "2",
   "ingredients" : ["3","5","8"],
-	"description" : "The best kind of chai!",
-	"img" : "champeppermint.png",
-},
+  "description" : "The best kind of chai!",
+  "img" : "chai.jpg"
+}
 ]

@@ -3,12 +3,12 @@ myApp.config(function ($routeProvider) {
 	$routeProvider 
 	.when('/', {
 		templateUrl: 'pages/recipes.html',
-		controller: 'searchController'
+		controller: 'recipesController'
 
 	})
-	.when('/Search',{
+	.when('/Recipes',{
 		templateUrl: 'pages/recipes.html',
-		controller: 'searchController'
+		controller: 'recipesController'
 
 	})
 	.when('/Ingredients',{
@@ -23,10 +23,25 @@ myApp.config(function ($routeProvider) {
 	})
 });
 
-myApp.controller('searchController', ['$scope','$log',
-function($scope,$location,$log) {
-
-}]);
+myApp.controller('recipesController',function($scope,$http) {
+  $scope.nameSearchInput = ""
+	//Load data from the db
+  $http.get('data/recipes_db.json')
+    .success(function(data) {
+        $scope.recipes=data;
+    })
+    .error(function(data,status,error,config){
+        $scope.recipes = [{heading:"Error",description:"Could not load json   data"}];
+    });
+  $http.get('data/ingredients_db.json')
+    .success(function(data) {
+        $scope.ingredients=data;
+    })
+    .error(function(data,status,error,config){
+        $scope.ingredients = [{heading:"Error",description:"Could not load json   data"}];
+    });
+	//$scope.ingredients = [{"name" : "peppermint","description" : "just nud"}]
+});
 myApp.controller('createController', ['$scope','$log',
 function($scope,$location,$log) {
 
