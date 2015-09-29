@@ -2,12 +2,12 @@ var myApp = angular.module('myApp',['ngRoute']);
 myApp.config(function ($routeProvider) {
 	$routeProvider 
 	.when('/', {
-		templateUrl: 'pages/Search.html',
+		templateUrl: 'pages/recipes.html',
 		controller: 'searchController'
 
 	})
 	.when('/Search',{
-		templateUrl: 'pages/Search.html',
+		templateUrl: 'pages/recipes.html',
 		controller: 'searchController'
 
 	})
