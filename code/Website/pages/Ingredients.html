@@ -1,10 +1,11 @@
-<h1>View all of the ingredients</h1>
-
+<h1>Learn about the ingredients</h1>
+Search: <input ng-model="nameSearchInput" style="margin-bottom:20px">
 <div>
-  <ul>
-    <li ng-repeat="x in ingredients">
-      {{ x.name + ', ' + x.description }}
-      <img src="img/ingredient/{{x.img}}" height="50" width="50"></img>
-    </li>
-  </ul>
+    <div class="panel panel-default" ng-repeat="x in ingredients | filter:nameSearchInput | orderBy: 'name'" style="width:50%">
+		<div class="panel-body">
+			<h3>{{x.name}}</h3>
+			<img src="img/ingredient/{{x.img}}" alt="..." height="100" width="100">
+		</div>
+		<div class="panel-footer"><p>{{x.description}}</p></div>
+    </div>
 </div>

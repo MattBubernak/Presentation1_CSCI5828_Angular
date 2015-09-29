@@ -33,6 +33,7 @@ function($scope,$location,$log) {
 }]);
 
 myApp.controller('ingredientsController', function($scope,$http) {
+  $scope.nameSearchInput = ""
 	//Load data from the db
   $http.get('data/ingredients_db.json')
     .success(function(data) {

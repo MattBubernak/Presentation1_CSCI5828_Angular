@@ -1,37 +1,37 @@
 [
 { 
 "name" : "peppermint",
-"description" : "it's pretty minty",
+"description" : "Peppermint is a hybrid mint, a cross between watermint and spearmint. The plant, indigenous to Europe and the middle east, is now widespread in cultivation in many regions of the world. It is found wild occasionally with it's parent speccies",
 "img" : "peppermint.jpg"
 },
 { 
 "name" : "chamomile",
-"description" : "it'll put ya to sleep",
+"description" : "Chamomile s the common name for several daisy-like plants of the family Asteraceae that are commonly used to make herb infusion to serve various medicinal purposes. Popular uses of chamomile preparations include treating hay fever, inflammation, muscle spasm, menstrual disorders, insomnia, ulcers, gastrointestinal disorder, and hemorrhoids",
 "img" : "chamomile.jpg"
 },
 { 
 "name" : "ginger root",
-"description" : "good stuff",
+"description" : "Ginger Root is a herbaceous perennial which grows annual stems about a meter tall bearing narrow green leaves and yellow flowers",
 "img" : "gingerroot.jpg"
 },
 { 
 "name" : "green tea",
-"description" : "2 cups a day keeps the doc away",
+"description" : "Green tea is made from the leaves from Camellia sinensis that have undergone minimal oxidation during processing.[1] Green tea originated in China, but it has become associated with many cultures throughout Asia. Green tea has recently become relatively widespread in the Western World where black tea has been traditionally consumed.",
 "img" : "greentea.jpg"
 },
 { 
 "name" : "black tea",
-"description" : "get that caffeine",
+"description" : "Black tea is a type of tea that is more oxidized than oolong, green and white teas. All four types are made from leaves of the shrub (or small tree) Camellia sinensis. Black tea is generally stronger in flavor than the less oxidized teas",
 "img" : "blacktea.jpg"
 },
 { 
 "name" : "jasmine",
-"description" : "It's kinda like flowers",
+"description" : "Jasmine is a genus of shrubs and vines in the olive family (Oleaceae). It contains around 200 species native to tropical and warm temperate regions of the Eurasia, Australasia and Oceania. Jasmines are widely cultivated for the characteristic fragrance of their flowers. A number of unrelated plants contain the word Jasmine in their common names",
 "img" : "jasmine.jpg"
 },
 { 
 "name" : "rose pedals",
-"description" : "roses are red, violets are blue",
+"description" : "Rose plants are usually shrubby, in appearance with long drooping canes and grayish green leaves. The flowers are round and globular, with thin overlapping petals that are highly scented. The shrub is erect, with a height of 3 to 6 feet. The branches are closely covered with nearly straight prickles.Read more at http://www.iloveindia.com/indian-herbs/rose-petals.html#l2LWQAVRfzFlqEYS.99",
 "img" : "rosepedals.jpg"
 }
 ]
