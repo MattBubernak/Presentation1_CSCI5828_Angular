@@ -1,14 +1,37 @@
 [
 { 
 "name" : "peppermint",
-"description" : "it's pretty minty"
+"description" : "it's pretty minty",
+"img" : "peppermint.jpg"
 },
 { 
 "name" : "chamomile",
-"description" : "it'll put ya to sleep"
+"description" : "it'll put ya to sleep",
+"img" : "chamomile.jpg"
 },
 { 
 "name" : "ginger root",
-"description" : "good stuff"
+"description" : "good stuff",
+"img" : "gingerroot.jpg"
+},
+{ 
+"name" : "green tea",
+"description" : "2 cups a day keeps the doc away",
+"img" : "greentea.jpg"
+},
+{ 
+"name" : "black tea",
+"description" : "get that caffeine",
+"img" : "blacktea.jpg"
+},
+{ 
+"name" : "jasmine",
+"description" : "It's kinda like flowers",
+"img" : "jasmine.jpg"
+},
+{ 
+"name" : "rose pedals",
+"description" : "roses are red, violets are blue",
+"img" : "rosepedals.jpg"
 }
 ]
