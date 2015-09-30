@@ -19,6 +19,10 @@
 				<div class="panel-body">
 					<h3>{{x.name}}</h3>
 					<img src="img/recipe/{{x.img}}" alt="..." height="100" width="100">
+					<br>Ingredients
+					<ul ng-repeat="y in x.ingredients">
+						<li>{{y.name}}</li>
+					<ul>
 				</div>
 				<div class="panel-footer"><p>{{x.description}}</p></div>
 		    </div>
