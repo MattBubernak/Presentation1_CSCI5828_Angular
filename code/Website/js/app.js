@@ -23,23 +23,44 @@ myApp.config(function ($routeProvider) {
 	})
 });
 
-myApp.controller('recipesController',function($scope,$http) {
+
+myApp.service('databaseService', function ($http,$q) {
+	var deferred1 = $q.defer();
+	var deferred2 = $q.defer(); 
+ 
+	$http.get('data/ingredients_db.json').then(function (data)
+	{
+		deferred1.resolve(data); 
+	})
+	$http.get('data/recipes_db.json').then(function (data)
+	{
+		deferred2.resolve(data); 
+	})
+
+	this.getIngredients = function ()
+	{
+		return deferred1.promise
+	}
+	this.getRecipes = function ()
+	{
+		return deferred2.promise
+	}
+
+})
+
+myApp.controller('recipesController',function($scope,$http,databaseService) {
   $scope.nameSearchInput = ""
 	//Load data from the db
-  $http.get('data/recipes_db.json')
-    .success(function(data) {
-        $scope.recipes=data;
-    })
-    .error(function(data,status,error,config){
-        $scope.recipes = [{heading:"Error",description:"Could not load json   data"}];
-    });
-  $http.get('data/ingredients_db.json')
-    .success(function(data) {
-        $scope.ingredients=data;
-    })
-    .error(function(data,status,error,config){
-        $scope.ingredients = [{heading:"Error",description:"Could not load json   data"}];
-    });
+  var promise1 = databaseService.getIngredients(); 
+  var promise2 = databaseService.getRecipes()
+  promise1.then(function (data)
+  {
+  	$scope.ingredients = data.data;
+  })
+  promise2.then(function (data)
+  {
+  	$scope.recipes = data.data;
+  })
 	//$scope.ingredients = [{"name" : "peppermint","description" : "just nud"}]
 });
 myApp.controller('createController', ['$scope','$log',
@@ -47,38 +68,46 @@ function($scope,$location,$log) {
 
 }]);
 
-myApp.controller('ingredientsController', function($scope,$http) {
+myApp.controller('ingredientsController', function($scope,$http,databaseService) {
   $scope.nameSearchInput = ""
-	//Load data from the db
-  $http.get('data/ingredients_db.json')
-    .success(function(data) {
-        $scope.ingredients=data;
-    })
-    .error(function(data,status,error,config){
-        $scope.ingredients = [{heading:"Error",description:"Could not load json   data"}];
-    });
-	//$scope.ingredients = [{"name" : "peppermint","description" : "just nud"}]
+  var promise = databaseService.getIngredients(); 
+  promise.then(function (data)
+  {
+  	$scope.ingredients = data.data;
+  })
 
 });
-/*
-myApp.factory("ingredientFactory", function()) 
-{
-	// define the ingredient function
-	var ingredientThing = function(ingredient)
 
-	// return a reference to the function
-	return (ingredientThing);
-});
-*/
-
-myApp.controller('formController', function($scope) {
+myApp.controller('formController', function($scope,databaseService) {
+	$scope.newRecip = {name: "Name it", description: "Describe the blend..."}
+	var promise1 = databaseService.getIngredients(); 
+	promise1.then(function (data)
+	{
+		$scope.ingredients = data.data;
+	})
+	var promise2 = databaseService.getRecipes(); 
+	promise2.then(function (data)
+	{
+		$scope.recipes = data.data;
+	})	
     $scope.master = {name: "Name it", description: "Describe the blend..."};
     $scope.reset = function() {
         $scope.newRecip = angular.copy($scope.master);
     };
     $scope.submit = function() {
     	// add it to the db
-        $scope.newRecip = angular.copy($scope.master);
+        //$scope.newRecip = angular.copy($scope.master);
+
+        $scope.recipes.push({ 
+			"name" : $scope.newRecip.name,
+			"id" : $scope.ingredients.length,
+			"description" : $scope.newRecip.description,
+			"img" : "placeholder.png"
+		})
+    	console.log('lol');
     };
     $scope.reset();
 });
+
+
+
