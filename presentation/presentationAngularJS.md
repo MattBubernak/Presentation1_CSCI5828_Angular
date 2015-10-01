@@ -37,10 +37,18 @@ Image source: https://docs.angularjs.org/guide/databinding
 * ng-bind: Sets the text of a DOM element to the value of an expression. For example, `<span ng-bind="name"></span>` will display the value of ‘name’ inside the span element.
 * ng-model: Similar to ng-bind but establishes a two-way data binding between the view and the scope.
 * ng-repeat: Instantiate an element once per item from a collection.
+* ng-view: <a name="ngview"></a> Helps routing the program to different pages without the need to refresh the displayed page.
  <Can add more directives depending on what is used in the code...>
 
-# AngularJS - Routing
-![Routing]
+# AngularJS - Routing (I)
+* Routing provies AngularJS the ability to display different HTML files (also called templates) without the need to refresh the currently displayed page.
+* In our application 'The Tea Master', routing works in the following way:
+![Routing](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/Routing.png)
+
+#AngularJS - Routing (II)
+* In 'The Tea Master' project, the routing service is used in conjunction to the directive [ng-view] (#ngview).
+* 'ng-view' is a directive used in the main template (index.html).
+* 
 #Using Project code demonstrate AngularJS double data binding here... 
 
 
