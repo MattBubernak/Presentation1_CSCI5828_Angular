@@ -40,6 +40,18 @@ Image source: https://docs.angularjs.org/guide/databinding
 * ng-view: <a name="ngview"></a> Helps routing the program to different pages without the need to refresh the displayed page.
  <Can add more directives depending on what is used in the code...>
 
+
+#AngularJS application - Demonstration
+* Before delving further in AngularJS introduction, let's look at the following AngularJS implementation that was created for the purpose of this tuturial.
+* Demo link: 
+
+#AngularJS -How is MVC architecture implemented?
+* To facili
+* In the demonstration application, MVC architecture is implemented in the following way:
+    1. Model: Generally, model components in AngularJS store the data. The data is manipulated by the business logic in the controller and displayed in the view. In the 'The Tea Master' application, Model is the 
+    
+    2. View:
+    3. Controller:
 # AngularJS - Routing (I)
 * Routing provies AngularJS the ability to display different HTML files (also called templates) without the need to refresh the currently displayed page.
 * In our application 'The Tea Master', routing works in the following way:
