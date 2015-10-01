@@ -72,7 +72,7 @@ myApp.controller('recipePageController',function($scope,$http,databaseService) {
   	for (var i = 0; i < $scope.ingredients.length; i++)
   	{
   		// Add an attribute to each recipe indicating whether it is owned by the CURRENT user. 
-		$scope.ingredients[i].owned = false;
+		//$scope.ingredients[i].owned = false;
   	}
   })
 
@@ -139,10 +139,10 @@ myApp.controller('recipePageController',function($scope,$http,databaseService) {
 });
 
 // Our controller for the create page. 
-myApp.controller('createController', ['$scope','$log',
-function($scope,$location,$log) {
+//myApp.controller('createController', ['$scope','$log',
+//function($scope,$location,$log) {
 
-}]);
+//}]);
 
 // Our controller for the ingredients page. 
 myApp.controller('ingredientsController', function($scope,$http,databaseService) {
@@ -156,14 +156,21 @@ myApp.controller('ingredientsController', function($scope,$http,databaseService)
 });
 
 // Our controller for the form on the create page. 
-myApp.controller('formController', function($scope,databaseService) {
-	$scope.showSuccess = false;
+myApp.controller('createController', function($scope,databaseService) {
+  	$scope.ingredientSearchText = ""
+  	$scope.showSuccess = false;
 	$scope.newRecip = {name: "Name it", description: "Describe the blend..."}
+    $scope.ingredientslist = [];
+
 	var promise1 = databaseService.getIngredients(); 
 
 	promise1.then(function (data)
 	{
 		$scope.ingredients = data.data;
+		  	for (var i = 0; i < $scope.ingredients.length; i++)
+  			{
+  				$scope.ingredients[i].selectedFor = false; 
+  			}
 	})
 	var promise2 = databaseService.getRecipes(); 
 	promise2.then(function (data)
@@ -175,10 +182,19 @@ myApp.controller('formController', function($scope,databaseService) {
         $scope.newRecip = angular.copy($scope.master);
     };
     $scope.submit = function() {
+    	for (var i = 0; i < $scope.ingredients.length; i++)
+    	{
+    		if ($scope.ingredients[i].selectedFor == true)
+    		{
+    			$scope.ingredientslist.push($scope.ingredients[i].id);
+    		}
+    	}
+    	console.log($scope.ingredientslist);
         $scope.recipes.push({ 
 			"name" : $scope.newRecip.name,
 			"id" : $scope.ingredients.length,
 			"description" : $scope.newRecip.description,
+			"ingredients" : $scope.ingredientslist,
 			"img" : "placeholder.png"
 		})
     	$scope.showSuccess = true;
