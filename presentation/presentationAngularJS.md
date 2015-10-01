@@ -47,8 +47,55 @@ Image source: https://docs.angularjs.org/guide/databinding
 
 #AngularJS - Routing (II)
 * In 'The Tea Master' project, the routing service is used in conjunction to the directive [ng-view] (#ngview).
-* 'ng-view' is a directive used in the main template (index.html).
-* 
+* 'ng-view' is a directive used in the main layout (index.html). It works to include the view template (i.e. recipies.html, Create.html, Ingredients.html) into the main layout. 
+* Snippet of code performing the routing:
+
+`myApp.config(function ($routeProvider) { `
+
+`$routeProvider`
+
+`	.when('/', {`
+
+`		templateUrl: 'pages/recipes.html',`
+
+`		controller: 'recipesController'`
+
+
+
+`	})`
+
+
+`	.when('/Recipes',{`
+
+`		templateUrl: 'pages/recipes.html',`
+
+`		controller: 'recipesController'`
+
+
+`	})`
+
+
+`	.when('/Ingredients',{`
+
+`		templateUrl: 'pages/Ingredients.html',`
+
+`		controller: 'ingredientsController'`
+
+
+
+`	})`
+
+`	.when('/Create',{`
+
+`		templateUrl: 'pages/Create.html',`
+
+`		controller: 'createController'`
+
+
+`	})`
+
+`});`
+`
 #Using Project code demonstrate AngularJS double data binding here... 
 
 
