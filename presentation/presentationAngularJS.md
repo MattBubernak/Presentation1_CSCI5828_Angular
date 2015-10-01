@@ -39,6 +39,8 @@ Image source: https://docs.angularjs.org/guide/databinding
 * ng-repeat: Instantiate an element once per item from a collection.
  <Can add more directives depending on what is used in the code...>
 
+# AngularJS - Routing
+![Routing]
 #Using Project code demonstrate AngularJS double data binding here... 
 
 
