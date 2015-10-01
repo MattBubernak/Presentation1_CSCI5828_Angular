@@ -6,12 +6,12 @@ myApp.config(function ($routeProvider) {
 	$routeProvider 
 	.when('/', {
 		templateUrl: 'pages/recipes.html',
-		controller: 'recipesController'
+		controller: 'recipePageController'
 
 	})
 	.when('/Recipes',{
 		templateUrl: 'pages/recipes.html',
-		controller: 'recipesController'
+		controller: 'recipePageController'
 
 	})
 	.when('/Ingredients',{
@@ -54,10 +54,27 @@ myApp.service('databaseService', function ($http,$q) {
 })
 
 // Our controller for the main recipes/search page. 
-myApp.controller('recipesController',function($scope,$http,databaseService) {
-  $scope.nameSearchInput = ""
+myApp.controller('recipePageController',function($scope,$http,databaseService) {
+  // Input for the search of the ingredient list
+  $scope.ingredientSearchText = ""
+  $scope.recipeSearchText = ""
+  // A list of recipes the user can create. 
+  $scope.userRecipes = []
+  $scope.filterRecipes = false;
+
   var promise1 = databaseService.getIngredients(); 
   var promise2 = databaseService.getRecipes()
+
+  // Grab ingredient data
+  promise1.then(function (data)
+  {
+  	$scope.ingredients = data.data;
+  	for (var i = 0; i < $scope.ingredients.length; i++)
+  	{
+  		// Add an attribute to each recipe indicating whether it is owned by the CURRENT user. 
+		//$scope.ingredients[i].owned = false;
+  	}
+  })
 
   $scope.getIngrById = function (inID)
   {
@@ -71,24 +88,50 @@ myApp.controller('recipesController',function($scope,$http,databaseService) {
 	return -1; 
   }
 
-  // Grab ingredient data
-  promise1.then(function (data)
+  $scope.updatePossibleRecipes = function ()
   {
-  	$scope.ingredients = data.data;
-  	console.log("hi");
-  })
+  	var found = false; 
+  	// Clear the recipe list 
+  	$scope.userRecipes = []
+  	// For each recipe 
+  	for (var i = 0; i < $scope.recipes.length; i++)
+  	{
+  		// For each of it's ingredients. 
+  		for (var j = 0; j < $scope.recipes[i].ingredients.length; j++)
+  		{
+  			found = false; 
+  			// See if it's in ingredients
+  			for (var k = 0; k < $scope.ingredients.length; k++)
+  			{
+  				if (($scope.ingredients[k].id == $scope.recipes[i].ingredients[j]) && $scope.ingredients[k].owned)
+  				{
+  					found = true;
+  				}
+  			}
+  			// if we never found ingredient(j) in the list of ingredients, break out of j. 
+  			if (found == false) {break};
+  		}
+  		if (found == true)
+  		{
+  			console.log("adding this one: " + $scope.recipes[i].name);
+	  		// If we found every ingredient, add it to the list. 
+	  		$scope.userRecipes.push($scope.recipes[i]);
+  		}
+  	}
+  }
+
 
   // Grab recipe data
   promise2.then(function (data)
   {
   	$scope.recipes = data.data;
-  	// Modify recipe data to instead instances of the ingredients. 
+  	// Modify recipe data to also have instances of the ingredients. 
 	for (var i = 0; i < $scope.recipes.length; i++)
 	{
+		$scope.recipes[i].ingredientObjs = [];
 		for (var j = 0; j < $scope.recipes[i].ingredients.length; j++)
 		{
-			// Add an array of actual ingredient objects. 
-			$scope.recipes[i].ingredients[j] = $scope.getIngrById($scope.recipes[i].ingredients[j]);
+			$scope.recipes[i].ingredientObjs[j] = $scope.getIngrById($scope.recipes[i].ingredients[j]);
 		}
 	}
   })
@@ -96,10 +139,10 @@ myApp.controller('recipesController',function($scope,$http,databaseService) {
 });
 
 // Our controller for the create page. 
-myApp.controller('createController', ['$scope','$log',
-function($scope,$location,$log) {
+//myApp.controller('createController', ['$scope','$log',
+//function($scope,$location,$log) {
 
-}]);
+//}]);
 
 // Our controller for the ingredients page. 
 myApp.controller('ingredientsController', function($scope,$http,databaseService) {
@@ -113,14 +156,21 @@ myApp.controller('ingredientsController', function($scope,$http,databaseService)
 });
 
 // Our controller for the form on the create page. 
-myApp.controller('formController', function($scope,databaseService) {
-	$scope.showSuccess = false;
+myApp.controller('createController', function($scope,databaseService) {
+  	$scope.ingredientSearchText = ""
+  	$scope.showSuccess = false;
 	$scope.newRecip = {name: "Name it", description: "Describe the blend..."}
+    $scope.ingredientslist = [];
+
 	var promise1 = databaseService.getIngredients(); 
 
 	promise1.then(function (data)
 	{
 		$scope.ingredients = data.data;
+		  	for (var i = 0; i < $scope.ingredients.length; i++)
+  			{
+  				$scope.ingredients[i].selectedFor = false; 
+  			}
 	})
 	var promise2 = databaseService.getRecipes(); 
 	promise2.then(function (data)
@@ -132,10 +182,19 @@ myApp.controller('formController', function($scope,databaseService) {
         $scope.newRecip = angular.copy($scope.master);
     };
     $scope.submit = function() {
+    	for (var i = 0; i < $scope.ingredients.length; i++)
+    	{
+    		if ($scope.ingredients[i].selectedFor == true)
+    		{
+    			$scope.ingredientslist.push($scope.ingredients[i].id);
+    		}
+    	}
+    	console.log($scope.ingredientslist);
         $scope.recipes.push({ 
 			"name" : $scope.newRecip.name,
 			"id" : $scope.ingredients.length,
 			"description" : $scope.newRecip.description,
+			"ingredients" : $scope.ingredientslist,
 			"img" : "placeholder.png"
 		})
     	$scope.showSuccess = true;
