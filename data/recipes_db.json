@@ -1,0 +1,20 @@
+[
+{ "name" : "chamomile peppermint",
+  "id" : "1",
+  "ingredients" : ["1","2"],
+  "description" : "Makes ur eyes water, but puts ya to sleep.",
+  "img" : "chamomilepeppermint.jpg"
+},
+{ "name" : "Matt's Chai",
+  "id" : "2",
+  "ingredients" : ["3","5","8"],
+  "description" : "The best kind of chai!",
+  "img" : "chai.jpg"
+},
+{ "name" : "Floral Green Tea",
+  "id" : "3",
+  "ingredients" : ["4","6","7"],
+  "description" : "Enjoy the floral aromas of this green tea",
+  "img" : "floralgreentea.png"
+}
+]

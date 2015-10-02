@@ -1,0 +1,20 @@
+<h1>Create a new recipe!</h1>
+<form novalidate>
+  Recipe Name:<br>
+  <input type="text" ng-model="newRecip.name"><br>
+  Recipe Description:<br>
+  <input type="text" ng-model="newRecip.description">
+  <br><br>
+  <h3>Select Ingredients</h3>
+    Search: <input ng-model="ingredientSearchText" style="margin-bottom:20px">
+    <ul ng-repeat="x in ingredients | filter:{name:ingredientSearchText} | orderBy: 'name' " style="width:50%">
+      <li>
+        <p>{{x.name}}</p>
+        <img src="img/ingredient/{{x.img}}" alt="..." height="50" width="50">
+        <input type="checkbox" ng-model="x.selectedFor">
+      </li>
+    </ul>
+    <button ng-click="reset()">RESET</button>
+  <button ng-click="submit()">SUBMIT</button>
+</form>
+<div class="alert alert-success" role="alert" ng-show="showSuccess" style="margin-top:5px;">Your recipe has been added! Thanks!</div>
