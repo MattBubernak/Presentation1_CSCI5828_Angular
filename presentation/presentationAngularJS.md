@@ -15,6 +15,7 @@
 * AngularJS provides reusable code components. 
 * AngularJS code is unit testable. Thus aiding in the development and testing processes.
 
+---
 # Unique feature(s) of AngularJS
 * It extends HTML to present dynamic content through **2-way data binding**. 
     1. Unlike traditional MVC architecture where the one way data binding occurs, in AngularJS there is automatic synchronization of data between Model and View in the MVC architecture. Changes to the View is reflected in the Model and vice versa.
@@ -24,6 +25,7 @@
 
 Image source: https://docs.angularjs.org/guide/databinding
 
+---
 # Basic Terminology - AngularJS
 * Template: HMTL file with additional markup
 * Directives:<a name="directives"></a> extend HTML elements with custom elements and attributes making it dynamic.
@@ -32,6 +34,7 @@ Image source: https://docs.angularjs.org/guide/databinding
 * Controller: the business logic behind the View
 * Scope: context where the Model is stores
 
+---
 # Basic AngularJS Directives
 * ng-app:<a name="ngapp"></a> Declares the root element of an AngularJS application, under which directives can be used to declare bindings and define behavior.
 * ng-bind: Sets the text of a DOM element to the value of an expression. For example, `<span ng-bind="name"></span>` will display the value of ‘name’ inside the span element.
@@ -41,16 +44,19 @@ Image source: https://docs.angularjs.org/guide/databinding
 * ngRoute: <a name="ngroute"></a> Provides routing and deeplinking services and directives for AngularJS applications.
 
 
+---
 #AngularJS - Demonstration using 'Tea Master' application
 * Before delving further in AngularJS introduction, let's look at the following AngularJS implementation that was created for the purpose of this tuturial.
 * Demo link: 
 
+---
 # AngularJS - Routing (I)
 * In the 'Tea Master' index.html page, when clicking the different pages like Recipes, Ingredients, etc., the page **does not** reload. It is achieved by using AngularJS's ability to perform routing.
 * Routing allows AngularJS to manage different pages (or view) without the need to reload the page.
 * In our application 'Tea Master', routing works in the following way:
 ![Routing](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/Routing.png)
 
+---
 #AngularJS - Routing (II)
 * In the 'Tea Master' demonstration, at the beginning of the `index.html` file, [`ng-app`](#ngapp) directive is used to bootstrap the use of AngularJS.
 * Following the bootstrapping directive, routing is achieved by using the [`ng-view`](#ngview) directive in the body of `index.html` file, and including [`ngRoute`](#ngroute) as a dependent module when declaring the angular module in a javascript file.
@@ -86,6 +92,7 @@ myApp.config(function ($routeProvider) {
 });
 ```
 
+---
 #AngularJS - Directives
 * In each of the Create.html, Ingredients.html or recipes.html files, AngularJS [directives](#directives) are used in conjunction with HTML elements to make the layouts more dynamic.
 * In the 'Tea Master' demonstration, if the option 'ingredients' is clicked on the top right corner, it displays
@@ -98,6 +105,8 @@ myApp.config(function ($routeProvider) {
 
 NOTE: The picture also shows the MVC architecture in AngularJS.
 
+
+---
 # AngularJS - Data binding
 * Two way data binding is the **unique** feature of AngularJS. Two directions of data-binding in the 'Tea Master' can be viewed as:
 * When ingredeints view is displayed and the search box is empty, the data travels from the model 'ingredients_db.json'. All the ingredients from the json file are displayed in the i'index.html' file. Hence, data travels from model to view.
@@ -146,6 +155,7 @@ myApp.service('databaseService', function ($http,$q) {
 })
 ```
 
+---
 # AngularJS - Expressions and Filters
 * Expressions: AngularJS expressions are written inside double i.e. **{{expression}}**. AngularJS will display the data in the view where the expressions are written. AngularJS will bind the data from the model to the HTML elements. Expressions in AngularJS can be literals, operators, and variables. Expressions used in the 'Tea Master' example are:
 ```
@@ -164,10 +174,13 @@ myApp.service('databaseService', function ($http,$q) {
 
 In the code snippet above, the input in the search box is used to filter the list of ingredients displayed.
 
+---
 #AngularJS - MVC architecture
 
+---
 #AngularJS - Service
 
+---
 #Conclusion
 
 
