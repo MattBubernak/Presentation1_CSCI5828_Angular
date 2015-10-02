@@ -95,6 +95,7 @@ myApp.config(function ($routeProvider) {
 * The ingredients search box uses the directive [`ng-model`](#ngmodel). `ng-model` establishes a two-way data binding. It shows data binding between the 'index.html' page and the scope of 'ingredientsController' i.e. ingredients_db.json file (also called the model).
 * Graphical representation of interaction between 'Ingredients.html', 'ingredientsController' and 'ingredients_db.json':
 ![Two-way Data Binding](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/DataBinding.png)
+
 NOTE: The picture also shows the MVC architecture in AngularJS.
 
 # AngularJS - Data binding
@@ -158,6 +159,7 @@ myApp.service('databaseService', function ($http,$q) {
 
 * Filters: Filters can be added to the expressions to transform the data as needed. Filters can be used to format data into a currency format, format strings to uppercase or lowercase, etc. Filters are represented by pipe character (|). 
 * In the 'Ingredients.html' file, filters are used as:
+
 ```<div class="panel panel-default" ng-repeat="x in ingredients | filter:{name:nameSearchInput} | orderBy: 'name'" style="width:50%">```
 
 In the code snippet above, the input in the search box is used to filter the list of ingredients displayed.
