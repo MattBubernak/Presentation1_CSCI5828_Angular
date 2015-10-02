@@ -6,6 +6,7 @@
   1. The application page never reloads or transfers to other pages. 
   2. Makes use of dynamic communication with the server.
 
+[next](WhyAngularJS.md)
 
 # Why AngularJS?
 * It is a bridge that helps convert static documents like HTML into dynamic applications. It does so by teaching the browers new syntax through a construct called **directives**.
@@ -94,17 +95,89 @@ myApp.config(function ($routeProvider) {
 * The list of ingredients is displayed using the AngularJS directive [`ng-repeat`](#ngrepeat). The directive iterates through the list of ingredients stored in the model (i.e. ingredients_db.json) file and displays them.
 * The ingredients search box uses the directive [`ng-model`](#ngmodel). `ng-model` establishes a two-way data binding. It shows data binding between the 'index.html' page and the scope of 'ingredientsController' i.e. ingredients_db.json file (also called the model).
 * Graphical representation of interaction between 'Ingredients.html', 'ingredientsController' and 'ingredients_db.json':
+![Two-way Data Binding](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/DataBinding.png)
 
+NOTE: The picture also shows the MVC architecture in AngularJS.
 
 # AngularJS - Data binding
-* Two way data binding is the **unique** feature of AngularJS. 
-* In 'Ingredients.html', `ng-model` is used to change the view of the data from the model. `ng-model` binds with the input HTML element and uses the 'filter' capability of AngularJS to filter the list of ingredients that is displayed using [`ng-repeat`](#ngrepeat) directive.
-* By default,
-Let's look at the 'ingredientsController' code that controls the integration between the view (ingredients.html) and the model (ingredients_db.json).
+* Two way data binding is the **unique** feature of AngularJS. Two directions of data-binding in the 'Tea Master' can be viewed as:
+* When ingredeints view is displayed and the search box is empty, the data travels from the model 'ingredients_db.json'. All the ingredients from the json file are displayed in the i'index.html' file. Hence, data travels from model to view.
+* When a search entry is entered in the search box, the `ng-model` associated with the search box uses the search term as the input and updates the list of ingredients displayed. In this case, the data is travelling from the view and to the model and eventually, the model is updating the view displayed to the user.
+* Code snippet from 'Ingredients.html' binding the input element to `ng-model`:
+```
+Search: <input ng-model="nameSearchInput" style="margin-bottom:20px">```
+```
+* Code snippet in 'ingredientsController' connecting the `ng-model` named nameSearchInput to 'databaseService':
+```
+myApp.controller('ingredientsController', function($scope,$http,databaseService) {
+  $scope.nameSearchInput = ""
+  var promise = databaseService.getIngredients(); 
+  promise.then(function (data)
+  {
+  	$scope.ingredients = data.data;
+  })
 
-```$scope.nameSearchInput = "" ```
+});
+```
+* Cod snippet in 'databaseService' connecting the controller to 'ingredients_db.json':
+```
+myApp.service('databaseService', function ($http,$q) {
+	var deferred1 = $q.defer();
+	var deferred2 = $q.defer(); 
+ 
+	$http.get('data/ingredients_db.json').then(function (data)
+	{
+		deferred1.resolve(data); 
+	})
+	$http.get('data/recipes_db.json').then(function (data)
+	{
+		deferred2.resolve(data); 
+	})
 
-From the code, it is evident that by default, the search box will be empty. Therefore, when we load the ingredients.html file, all the ingredients are listed. However, as we start typing the ingredients, the list of ingredients displayed gets filtered. 
+	this.getIngredients = function ()
+	{
+		return deferred1.promise
+	}
+	this.getRecipes = function ()
+	{
+		return deferred2.promise
+	}
+
+
+})
+```
+
+# AngularJS - Expressions and Filters
+* Expressions: AngularJS expressions are written inside double i.e. **{{expression}}**. AngularJS will display the data in the view where the expressions are written. AngularJS will bind the data from the model to the HTML elements. Expressions in AngularJS can be literals, operators, and variables. Expressions used in the 'Tea Master' example are:
+```
+<div class="panel-body">
+			<h3>{{x.name}}</h3>
+			<img src="img/ingredient/{{x.img}}" alt="..." height="100" width="100">
+		</div>
+		<div class="panel-footer"><p>{{x.description}}</p></div>
+```
+`{{x.name}}`, `{{x.img}}` and `{{x.description}}` are expressions used in 'Ingredients.html' to display the name, image and he description for each ingredients.
+
+* Filters: Filters can be added to the expressions to transform the data as needed. Filters can be used to format data into a currency format, format strings to uppercase or lowercase, etc. Filters are represented by pipe character (|). 
+* In the 'Ingredients.html' file, filters are used as:
+
+```<div class="panel panel-default" ng-repeat="x in ingredients | filter:{name:nameSearchInput} | orderBy: 'name'" style="width:50%">```
+
+In the code snippet above, the input in the search box is used to filter the list of ingredients displayed.
+
+#AngularJS - MVC architecture
+A Model View Controller is made up of following components:
+* Model: Component responsible for maintaining the data.
+* View: Component responsible for displaying the data to the user.
+* Controller: Code that holds the business logic and controls the interaction between the model and the view.
+* In the 'Tea Master' demonstration, the MVC architecture is included in the following way:
+
+
+#AngularJS - Service
+
+#Conclusion
+
+
 
 #AngularJS -How is MVC architecture implemented?
 * To facili
@@ -114,16 +187,7 @@ From the code, it is evident that by default, the search box will be empty. Ther
     2. View:
     3. Controller:
     4. 
-#Using Project code demonstrate AngularJS double data binding here... 
-
-
-#Using Project code demonstrate the use of MVC architecture in AngularJS here ... 
-
-#Using code explain filters here
-In AngularJS, the filter formats the value of an expression to display to the user. Filters can be used in controllers or services. 
 
 #Use code to explain the ease of unit testing using AngularJS
-
-#If any directives are custom defined in the code, use that example
 
 #If any services are used in the code, use that example here
