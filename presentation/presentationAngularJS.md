@@ -26,88 +26,82 @@ Image source: https://docs.angularjs.org/guide/databinding
 
 # Basic Terminology - AngularJS
 * Template: HMTL file with additional markup
-* Directives: extend HTML elements with custom elements and attributes
+* Directives:<a name="directives"></a> extend HTML elements with custom elements and attributes making it dynamic.
 * View: what is seen by the user.
 * Model: data that is displayed in the View
 * Controller: the business logic behind the View
 * Scope: context where the Model is stores
 
 # Basic AngularJS Directives
-* ng-app: Declares the root element of an AngularJS application, under which directives can be used to declare bindings and define behavior.
+* ng-app:<a name="ngapp"></a> Declares the root element of an AngularJS application, under which directives can be used to declare bindings and define behavior.
 * ng-bind: Sets the text of a DOM element to the value of an expression. For example, `<span ng-bind="name"></span>` will display the value of ‘name’ inside the span element.
-* ng-model: Similar to ng-bind but establishes a two-way data binding between the view and the scope.
-* ng-repeat: Instantiate an element once per item from a collection.
+* ng-model: <a name="ngmodel"></a> Similar to ng-bind but establishes a two-way data binding between the view and the scope.
+* ng-repeat:<a name="ngrepeat"></a> Instantiate an element once per item from a collection.
 * ng-view: <a name="ngview"></a> Helps routing the program to different pages without the need to refresh the displayed page.
- <Can add more directives depending on what is used in the code...>
+* ngRoute: <a name="ngroute"></a> Provides routing and deeplinking services and directives for AngularJS applications.
 
 
-#AngularJS application - Demonstration
+#AngularJS - Demonstration using 'Tea Master' application
 * Before delving further in AngularJS introduction, let's look at the following AngularJS implementation that was created for the purpose of this tuturial.
 * Demo link: 
+
+# AngularJS - Routing (I)
+* In the 'Tea Master' index.html page, when clicking the different pages like Recipes, Ingredients, etc., the page **does not** reload. It is achieved by using AngularJS's ability to perform routing.
+* Routing allows AngularJS to manage different pages (or view) without the need to reload the page.
+* In our application 'Tea Master', routing works in the following way:
+![Routing](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/Routing.png)
+
+#AngularJS - Routing (II)
+* In the 'Tea Master' demonstration, at the beginning of the `index.html` file, [`ng-app`](#ngapp) directive is used to bootstrap the use of AngularJS.
+* Following the bootstrapping directive, routing is achieved by using the [`ng-view`](#ngview) directive in the body of `index.html` file, and including [`ngRoute`](#ngroute) as a dependent module when declaring the angular module in a javascript file.
+```
+var myApp = angular.module('myApp',['ngRoute']);
+```
+In the code above, the angular module declared is 'myApp' with the 'ngRoute' dependency.
+* The [`ng-view`](#ngview) directive is used in conjunction with the `$routeProvider` service to assist with the routing process.
+* The following code displays the use of `$routeProvider` service in order to route to the pages - Create.html, Recipe.html and Ingredients.html.
+```
+myApp.config(function ($routeProvider) {
+	$routeProvider 
+	.when('/', {
+		templateUrl: 'pages/recipes.html',
+		controller: 'recipePageController'
+
+	})
+	.when('/Recipes',{
+		templateUrl: 'pages/recipes.html',
+		controller: 'recipePageController'
+
+	})
+	.when('/Ingredients',{
+		templateUrl: 'pages/Ingredients.html',
+		controller: 'ingredientsController'
+
+	})
+	.when('/Create',{
+		templateUrl: 'pages/Create.html',
+		controller: 'createController'
+
+	})
+});
+```
+
+#AngularJS - Directives
+* In each of the Create.html, Ingredients.html or recipes.html files, AngularJS [directives](#directives) are used in conjunction with HTML elements to make the layouts more dynamic.
+* In the 'Tea Master' demonstration, if the option 'ingredients' is clicked on the top right corner, it displays
+    1. the list of ingredients.
+    2. the ingredients search box.
+* The list of ingredients is displayed using the AngularJS directive [`ng-repeat`](#ngrepeat).
+* The ingredients search box is 
 
 #AngularJS -How is MVC architecture implemented?
 * To facili
 * In the demonstration application, MVC architecture is implemented in the following way:
-    1. Model: Generally, model components in AngularJS store the data. The data is manipulated by the business logic in the controller and displayed in the view. In the 'The Tea Master' application, Model is the 
+    1. Model: Generally, model components in AngularJS store the data. The data is manipulated by the business logic in the controller and displayed in the view. In the 'Tea Master' application, Model is the 
     
     2. View:
     3. Controller:
-# AngularJS - Routing (I)
-* Routing provies AngularJS the ability to display different HTML files (also called templates) without the need to refresh the currently displayed page.
-* In our application 'The Tea Master', routing works in the following way:
-![Routing](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/Routing.png)
-
-#AngularJS - Routing (II)
-* In 'The Tea Master' project, the routing service is used in conjunction to the directive [ng-view] (#ngview).
-* 'ng-view' is a directive used in the main layout (index.html). It works to include the view template (i.e. recipies.html, Create.html, Ingredients.html) into the main layout. 
-* Snippet of code performing the routing:
-
-`myApp.config(function ($routeProvider) { `
-
-`$routeProvider`
-
-`	.when('/', {`
-
-`		templateUrl: 'pages/recipes.html',`
-
-`		controller: 'recipesController'`
-
-
-
-`	})`
-
-
-`	.when('/Recipes',{`
-
-`		templateUrl: 'pages/recipes.html',`
-
-`		controller: 'recipesController'`
-
-
-`	})`
-
-
-`	.when('/Ingredients',{`
-
-`		templateUrl: 'pages/Ingredients.html',`
-
-`		controller: 'ingredientsController'`
-
-
-
-`	})`
-
-`	.when('/Create',{`
-
-`		templateUrl: 'pages/Create.html',`
-
-`		controller: 'createController'`
-
-
-`	})`
-
-`});`
-`
+    4. 
 #Using Project code demonstrate AngularJS double data binding here... 
 
 
