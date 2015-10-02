@@ -6,6 +6,8 @@
   1. The application page never reloads or transfers to other pages. 
   2. Makes use of dynamic communication with the server.
 
+[a relative link](Introduction.md)
+
 # Why AngularJS?
 * It is a bridge that helps convert static documents like HTML into dynamic applications. It does so by teaching the browers new syntax through a construct called **directives**.
 * AngularJS eliminates the following approaches to making static documents dynamic:
