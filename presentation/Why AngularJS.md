@@ -5,4 +5,5 @@
   2. **Frameworks**: Using Frameworks, the framework controls the code written by the developer. Example: ember, durandal, etc. 
 * AngularJS provides reusable code components. 
 * AngularJS code is unit testable. Thus aiding in the development and testing processes.
-[previous]()[next]()
+
+[previous](presentationAngularJS.md) [next](UniqueFeature.md)
