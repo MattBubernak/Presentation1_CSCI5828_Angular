@@ -6,4 +6,4 @@
 * Controller: the business logic behind the View
 * Scope: context where the Model is stores
 
-[previous](UniqueFeatures.md)  [next]()
+[previous](UniqueFeature.md)  [next]()
