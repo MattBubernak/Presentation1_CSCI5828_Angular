@@ -92,12 +92,15 @@ myApp.config(function ($routeProvider) {
     1. the list of ingredients.
     2. the ingredients search box.
 * The list of ingredients is displayed using the AngularJS directive [`ng-repeat`](#ngrepeat). The directive iterates through the list of ingredients stored in the model (i.e. ingredients_db.json) file and displays them.
-* The ingredients search box is uses the directive [`ng-model`](#ngmodel). `ng-model` establishes a two-way data binding between the view and the scope using the 'ingredientsController'. 
+* The ingredients search box uses the directive [`ng-model`](#ngmodel). `ng-model` establishes a two-way data binding. It shows data binding between the 'index.html' page and the scope of 'ingredientsController' i.e. ingredients_db.json file (also called the model).
+* Graphical representation of interaction between 'Ingredients.html', 'ingredientsController' and 'ingredients_db.json':
+
 
 # AngularJS - Data binding
 * Two way data binding is the **unique** feature of AngularJS. 
-* The search box in the 'Ingredient.html' page successfully demonstrates the two-way data binding. It shows data binding between the 'index.html' page and the scope of 'ingredientsController' i.e. ingredients_db.json file (also called the model).
-* Let's look at the 'ingredientsController' code that controls the interation between the view (ingredients.html) and the model (ingredients_db.json).
+* In 'Ingredients.html', `ng-model` is used to change the view of the data from the model. `ng-model` binds with the input HTML element and uses the 'filter' capability of AngularJS to filter the list of ingredients that is displayed using [`ng-repeat`](#ngrepeat) directive.
+* By default,
+Let's look at the 'ingredientsController' code that controls the integration between the view (ingredients.html) and the model (ingredients_db.json).
 
 ```$scope.nameSearchInput = "" ```
 
