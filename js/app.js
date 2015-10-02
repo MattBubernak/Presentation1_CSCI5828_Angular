@@ -15,12 +15,12 @@ myApp.config(function ($routeProvider) {
 
 	})
 	.when('/Ingredients',{
-		templateUrl: 'pages/Ingredients.html',
+		templateUrl: 'pages/ingredients.html',
 		controller: 'ingredientsController'
 
 	})
 	.when('/Create',{
-		templateUrl: 'pages/Create.html',
+		templateUrl: 'pages/create.html',
 		controller: 'createController'
 
 	})
