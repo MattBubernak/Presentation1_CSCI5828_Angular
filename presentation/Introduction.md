@@ -5,4 +5,3 @@
 * It is built for single web page applications.
   1. The application page never reloads or transfers to other pages. 
   2. Makes use of dynamic communication with the server.
-  3. 
