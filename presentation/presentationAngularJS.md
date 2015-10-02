@@ -171,7 +171,7 @@ A Model View Controller is made up of following components:
 * View: Component responsible for displaying the data to the user.
 * Controller: Code that holds the business logic and controls the interaction between the model and the view.
 * In the 'Tea Master' demonstration, the MVC architecture is included in the following way:
-
+![MVC architecture in AngularJS](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/AngularMVC.png)
 
 #AngularJS - Service
 
