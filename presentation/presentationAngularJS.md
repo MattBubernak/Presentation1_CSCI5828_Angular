@@ -97,8 +97,25 @@ myApp.config(function ($routeProvider) {
 ![Two-way Data Binding](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/DataBinding.png)
 
 # AngularJS - Data binding
-* Two way data binding is the **unique** feature of AngularJS. 
-* In 'Ingredients.html', `ng-model` is used to change the view of the data from the model. `ng-model` binds with the input HTML element and uses the 'filter' capability of AngularJS to filter the list of ingredients that is displayed using [`ng-repeat`](#ngrepeat) directive.
+* Two way data binding is the **unique** feature of AngularJS. Two directions of data-binding in the 'Tea Master' can be viewed as:
+* When ingredeints view is displayed and the search box is empty, the data travels from the model 'ingredients_db.json'. All the ingredients from the json file are displayed in the i'index.html' file. Hence, data travels from model to view.
+* When a search entry is entered in the search box, the `ng-model` associated with the search box uses the search term as the input and updates the list of ingredients displayed. In this case, the data is travelling from the view and to the model and eventually, the model is updating the view displayed to the user.
+* Code snippet from 'Ingredients.html' binding the input element to `ng-model`:
+```<h1 style="text-align:left">Learn about the ingredients</h1>
+Search: <input ng-model="nameSearchInput" style="margin-bottom:20px">
+<div>
+    <div class="panel panel-default" ng-repeat="x in ingredients | filter:{name:nameSearchInput} | orderBy: 'name'" style="width:50%">
+		<div class="panel-body">
+			<h3>{{x.name}}</h3>
+			<img src="img/ingredient/{{x.img}}" alt="..." height="100" width="100">
+		</div>
+		<div class="panel-footer"><p>{{x.description}}</p></div>
+    </div>
+</div>
+```
+
+* In 'Ingredients.html', [`ng-model`](#ngmodel) directives binds with the model elements and helps to change the view. By default, `ng-model` is associated with 
+* is used to change the view of the data from the model. `ng-model` binds with the input HTML element and uses the 'filter' capability of AngularJS to filter the list of ingredients that is displayed using [`ng-repeat`](#ngrepeat) directive.
 * By default,
 Let's look at the 'ingredientsController' code that controls the integration between the view (ingredients.html) and the model (ingredients_db.json).
 
