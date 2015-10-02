@@ -91,8 +91,17 @@ myApp.config(function ($routeProvider) {
 * In the 'Tea Master' demonstration, if the option 'ingredients' is clicked on the top right corner, it displays
     1. the list of ingredients.
     2. the ingredients search box.
-* The list of ingredients is displayed using the AngularJS directive [`ng-repeat`](#ngrepeat).
-* The ingredients search box is 
+* The list of ingredients is displayed using the AngularJS directive [`ng-repeat`](#ngrepeat). The directive iterates through the list of ingredients stored in the model (i.e. ingredients_db.json) file and displays them.
+* The ingredients search box is uses the directive [`ng-model`](#ngmodel). `ng-model` establishes a two-way data binding between the view and the scope using the 'ingredientsController'. 
+
+# AngularJS - Data binding
+* Two way data binding is the **unique** feature of AngularJS. 
+* The search box in the 'Ingredient.html' page successfully demonstrates the two-way data binding. It shows data binding between the 'index.html' page and the scope of 'ingredientsController' i.e. ingredients_db.json file (also called the model).
+* Let's look at the 'ingredientsController' code that controls the interation between the view (ingredients.html) and the model (ingredients_db.json).
+
+```$scope.nameSearchInput = "" ```
+
+From the code, it is evident that by default, the search box will be empty. Therefore, when we load the ingredients.html file, all the ingredients are listed. However, as we start typing the ingredients, the list of ingredients displayed gets filtered. 
 
 #AngularJS -How is MVC architecture implemented?
 * To facili
