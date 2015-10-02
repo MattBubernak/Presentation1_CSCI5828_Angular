@@ -94,7 +94,7 @@ myApp.config(function ($routeProvider) {
 * The list of ingredients is displayed using the AngularJS directive [`ng-repeat`](#ngrepeat). The directive iterates through the list of ingredients stored in the model (i.e. ingredients_db.json) file and displays them.
 * The ingredients search box uses the directive [`ng-model`](#ngmodel). `ng-model` establishes a two-way data binding. It shows data binding between the 'index.html' page and the scope of 'ingredientsController' i.e. ingredients_db.json file (also called the model).
 * Graphical representation of interaction between 'Ingredients.html', 'ingredientsController' and 'ingredients_db.json':
-
+![Two-way Data Binding](https://github.com/MattBubernak/Presentation1_CSCI5828_Angular/blob/master/presentation/presentationImages/DataBinding.png)
 
 # AngularJS - Data binding
 * Two way data binding is the **unique** feature of AngularJS. 
