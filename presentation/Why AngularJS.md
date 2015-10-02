@@ -6,4 +6,4 @@
 * AngularJS provides reusable code components. 
 * AngularJS code is unit testable. Thus aiding in the development and testing processes.
 
-[previous](presentationAngularJS.md) [next](UniqueFeature.md)
+[previous](presentationAngularJS.md)    [next](UniqueFeature.md)
