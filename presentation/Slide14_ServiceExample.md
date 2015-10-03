@@ -39,6 +39,6 @@ myApp.controller('ingredientsController', function($scope,$http,databaseService)
 
 });
 ```
-The above code demonstrates how our ingredientsController is "injected" with the databaseService. It is then able to put the ingredients data into it's own scope, as $scope.ingredients. This may prompt you to ask, what's going on with those promises? This will be answered in the upcoming slide. 
+The above code demonstrates how our ingredientsController is "injected" with the databaseService. It is then able to put the ingredients data into it's own scope, as $scope.ingredients. This may prompt some question about the "promise" syntax. This will be answered in the upcoming slide. 
 
 [previous](Slide13_BasicServices.md)    [next](Slide15_Promises.md)
