@@ -6,43 +6,20 @@
 ```
 Search: <input ng-model="nameSearchInput" style="margin-bottom:20px">```
 ```
-* Code snippet in 'ingredientsController' connecting the `ng-model` named nameSearchInput to 'databaseService':
+* The below code snippet(reduced to show only important lines) in 'ingredientsController' shows the existance of the `ng-model` "nameSearchInput", a variable modifiable through the view, and "$scope.ingredients", which is a reference to the model:
 ```
 myApp.controller('ingredientsController', function($scope,$http,databaseService) {
   $scope.nameSearchInput = ""
-  var promise = databaseService.getIngredients(); 
-  promise.then(function (data)
-  {
+  ...
   	$scope.ingredients = data.data;
-  })
-
+  ...
 });
 ```
-* Cod snippet in 'databaseService' connecting the controller to 'ingredients_db.json':
+* The below code snippet from the ingredients page shows two way data binding occuring. The entire list is being bound to the model, via `ng-repeat` , and the list is actually being directly filtered/modified using the view `ng-model` nameSearchInput. 
 ```
-myApp.service('databaseService', function ($http,$q) {
-	var deferred1 = $q.defer();
-	var deferred2 = $q.defer(); 
- 
-	$http.get('data/ingredients_db.json').then(function (data)
-	{
-		deferred1.resolve(data); 
-	})
-	$http.get('data/recipes_db.json').then(function (data)
-	{
-		deferred2.resolve(data); 
-	})
-
-	this.getIngredients = function ()
-	{
-		return deferred1.promise
-	}
-	this.getRecipes = function ()
-	{
-		return deferred2.promise
-	}
-
-
-})
+Search: <input ng-model="nameSearchInput" style="margin-bottom:20px">
+<div>
+    <div class="panel panel-default" ng-repeat="x in ingredients | filter:{name:nameSearchInput} | orderBy: 'name'" style="width:50%">
 ```
+
 [previous](Slide9_Directives.md)    [next](Slide11_ExpressionsFilters.md)
