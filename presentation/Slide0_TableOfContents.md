@@ -1,5 +1,4 @@
 #Table of Contents
-
 1. [Introduction](Slide1_Introduction.md)
 2. [Why Angular](Slide2_WhyAngular.md)
 3. [Unique Features](Slide3_UniqueFeatures.md)
