@@ -51,7 +51,7 @@ myApp.controller('ingredientsController', function($scope,$http,databaseService)
   	$scope.ingredients = data;
   },function(error)
   {
-  	$scope.ingredients = {};
+  	$scope.ingredients = []
   })
 
 });
