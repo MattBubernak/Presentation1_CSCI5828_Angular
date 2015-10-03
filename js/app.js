@@ -29,27 +29,38 @@ myApp.config(function ($routeProvider) {
 // This service reads the data from our "database"(json files), and provides our controllers
 // access to it. When they access it, they are accessing a shared copy. 
 myApp.service('databaseService', function ($http,$q) {
-	var deferred1 = $q.defer();
-	var deferred2 = $q.defer(); 
+	
+  var ingredientsData = $q.defer(); 
+  var recipesData = $q.defer(); 
  
-	$http.get('data/ingredients_db.json').then(function (data)
-	{
-		deferred1.resolve(data); 
-	})
-	$http.get('data/recipes_db.json').then(function (data)
-	{
-		deferred2.resolve(data); 
-	})
+  // Init reads all the data from the DB to be stored in this service. 
+  this.initData = function()
+  {
+    console.log('inited...')
+    $http.get('data/ingredients_db.json').then(function (data)
+    {
+      //ingredientsData = data.data;
+      for (i = 0; i < data.data.length; i++)
+      {
+        data.data[i].owned = false; 
+      }
+      ingredientsData.resolve(data.data);
+    })
+    $http.get('data/recipes_db.json').then(function (data)
+    {
+      recipesData.resolve(data.data); 
+    })
+  }
+  this.initData();
 
-	this.getIngredients = function ()
-	{
-		return deferred1.promise
-	}
-	this.getRecipes = function ()
-	{
-		return deferred2.promise
-	}
-
+  this.getIngredients = function ()
+  {
+    return ingredientsData.promise
+  }
+  this.getRecipes = function ()
+  {
+    return recipesData.promise
+  }
 
 })
 
@@ -68,12 +79,7 @@ myApp.controller('recipePageController',function($scope,$http,databaseService) {
   // Grab ingredient data
   promise1.then(function (data)
   {
-  	$scope.ingredients = data.data;
-  	for (var i = 0; i < $scope.ingredients.length; i++)
-  	{
-  		// Add an attribute to each recipe indicating whether it is owned by the CURRENT user. 
-		//$scope.ingredients[i].owned = false;
-  	}
+  	$scope.ingredients = data;
   })
 
   $scope.getIngrById = function (inID)
@@ -124,7 +130,7 @@ myApp.controller('recipePageController',function($scope,$http,databaseService) {
   // Grab recipe data
   promise2.then(function (data)
   {
-  	$scope.recipes = data.data;
+  	$scope.recipes = data;
   	// Modify recipe data to also have instances of the ingredients. 
 	for (var i = 0; i < $scope.recipes.length; i++)
 	{
@@ -138,11 +144,6 @@ myApp.controller('recipePageController',function($scope,$http,databaseService) {
 
 });
 
-// Our controller for the create page. 
-//myApp.controller('createController', ['$scope','$log',
-//function($scope,$location,$log) {
-
-//}]);
 
 // Our controller for the ingredients page. 
 myApp.controller('ingredientsController', function($scope,$http,databaseService) {
@@ -150,7 +151,7 @@ myApp.controller('ingredientsController', function($scope,$http,databaseService)
   var promise = databaseService.getIngredients(); 
   promise.then(function (data)
   {
-  	$scope.ingredients = data.data;
+  	$scope.ingredients = data;
   })
 
 });
@@ -166,16 +167,16 @@ myApp.controller('createController', function($scope,databaseService) {
 
 	promise1.then(function (data)
 	{
-		$scope.ingredients = data.data;
-		  	for (var i = 0; i < $scope.ingredients.length; i++)
-  			{
-  				$scope.ingredients[i].selectedFor = false; 
-  			}
+		$scope.ingredients = data;
+  	for (var i = 0; i < $scope.ingredients.length; i++)
+		{
+			$scope.ingredients[i].selectedFor = false; 
+		}
 	})
 	var promise2 = databaseService.getRecipes(); 
 	promise2.then(function (data)
 	{
-		$scope.recipes = data.data;
+		$scope.recipes = data;
 	})	
     $scope.master = {name: "Name it", description: "Describe the blend..."};
     $scope.reset = function() {
