@@ -1,6 +1,6 @@
 #AngularJS - Promises
 
-Promises are an extremely important feature of angular, one that greatly assists the handling of asynchronous calls. The core concept behind a promise is sometimes you may need to request data, and plan to do something with that data, on the assumption it will eventually be returned. Howler, depending on how it is returned, you may need to handle it in different ways. Promises are accessed by injected the "$q" service. There are a few key components to a promise: 
+Promises are an extremely important feature of angular, one that greatly assists the handling of asynchronous calls. The core concept behind a promise is sometimes you may need to request data, and plan to do something with that data, on the assumption it will eventually be returned. Later, depending on how it is returned, you may need to handle it in different ways. Promises are accessed by injected the "$q" service. There are a few key components to a promise: 
 
 ## Deferred
 When you declare a variable as deferred, you are exposing the methods related to promises. 
