@@ -80,7 +80,7 @@ myApp.controller('recipePageController',function($scope,$http,databaseService) {
   promise1.then(function (data)
   {
   	$scope.ingredients = data;
-  })
+  },function(error) { $scope.ingredients = []})
 
   $scope.getIngrById = function (inID)
   {
@@ -140,7 +140,7 @@ myApp.controller('recipePageController',function($scope,$http,databaseService) {
 			$scope.recipes[i].ingredientObjs[j] = $scope.getIngrById($scope.recipes[i].ingredients[j]);
 		}
 	}
-  })
+  },function(error) { $scope.recipes = []})
 
 });
 
@@ -152,7 +152,7 @@ myApp.controller('ingredientsController', function($scope,$http,databaseService)
   promise.then(function (data)
   {
   	$scope.ingredients = data;
-  })
+  },function(error) { $scope.ingredients = []})
 
 });
 
@@ -172,12 +172,13 @@ myApp.controller('createController', function($scope,databaseService) {
 		{
 			$scope.ingredients[i].selectedFor = false; 
 		}
-	})
+	},function(error) { $scope.ingredients = []}
+  )
 	var promise2 = databaseService.getRecipes(); 
 	promise2.then(function (data)
 	{
 		$scope.recipes = data;
-	})	
+	},function(error) { $scope.recipes = []})	
     $scope.master = {name: "Name it", description: "Describe the blend..."};
     $scope.reset = function() {
         $scope.newRecip = angular.copy($scope.master);
