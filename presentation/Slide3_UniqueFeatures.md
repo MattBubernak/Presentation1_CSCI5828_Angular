@@ -7,4 +7,4 @@
 
 Image source: https://docs.angularjs.org/guide/databinding
 
-[previous](Slide2_WhyAngular.md)  [next](Slide4_BasicTerm)
+[previous](Slide2_WhyAngular.md)  [next](Slide4_basicTerm.md)

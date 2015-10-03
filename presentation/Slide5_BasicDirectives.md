@@ -5,4 +5,5 @@
 * ng-repeat:<a name="ngrepeat"></a> Instantiate an element once per item from a collection.
 * ng-view: <a name="ngview"></a> Helps routing the program to different pages without the need to refresh the displayed page.
 * ngRoute: <a name="ngroute"></a> Provides routing and deeplinking services and directives for AngularJS applications.
-[previous](Slide4_BasicTerm.md)    [next](Slide6_.md)
+
+[previous](Slide4_BasicTerm.md)    [next](Slide6_Demonstration.md)
