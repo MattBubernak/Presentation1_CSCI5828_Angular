@@ -6,7 +6,7 @@
 ```
 Search: <input ng-model="nameSearchInput" style="margin-bottom:20px">```
 ```
-* The below code snippet(reduced to show only important lines) in 'ingredientsController' shows the existance of the `ng-model` "nameSearchInput", a variable modifiable through the view, and "$scope.ingredients", which is a reference to the model:
+* The below code snippet(reduced to show only important lines) in 'ingredientsController' shows the existance of the `ng-model` "nameSearchInput", a variable modifiable through the view, and "$scope.ingredients", which is a reference to part of model of this application, the ingredients list:
 ```
 myApp.controller('ingredientsController', function($scope,$http,databaseService) {
   $scope.nameSearchInput = ""
