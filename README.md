@@ -5,4 +5,4 @@ Presentation about Angular JS for Foundations of Software Engineering, Fall 2015
 
 [Demo](http://mattbubernak.github.io/Presentation1_CSCI5828_Angular/)
 
-Clone Code: ```git clone -b gh-pages https://github.com/bechang/pppl-labs.git lab3```
+Clone Code: ```git clone -b gh-pages git@github.com:MattBubernak/Presentation1_CSCI5828_Angular.git angular-repo```
