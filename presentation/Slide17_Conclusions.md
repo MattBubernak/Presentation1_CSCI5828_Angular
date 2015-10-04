@@ -1,4 +1,4 @@
-#AngularJS - Conclusion:
+#AngularJS - Conclusion
 * In conclusion, AngularJS is advantageous to developers and aids the process of software engineering in the following ways:
   1. AngularJS uses two way data binding and eliminates the need to write much code on the server side to process the data. It also makes the applications developed more responsive to the end uesr.
   2. AngularJS provides developers the ability to write less code hence aiding in the process of software development and making maintainability easier. It does so by:
