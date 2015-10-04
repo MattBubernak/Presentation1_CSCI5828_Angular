@@ -6,4 +6,6 @@
       2. AngularJS provides routing ability that in turn provides the ability to create single page application that is able to reload multiple contents without having to actually reload the currently displayed page. This makes it easier/faster to write the code for single page applications.
 3. By using constructs like filters and expressions, AngularJS allows developers to write less code.
 
-However, AngularJS does come with it's own set of disadvantages. Going back to the idea provided by Fred Brooks in the article 'No Silver Bullet', .... 
+However, AngularJS does come with it's own set of disadvantages. Going back to the idea provided by Fred Brooks in the article 'No Silver Bullet', even though AngularJS attempts to tackle the issue of complexity around making single page applications, inadvertently, it creates a new set of problems. The following are the disadvantages to using AngularJS:
+* Being a Javascript framework, AngularJS applications are not safe because they won't make use of server side authentication and authorization to keep the applications secure.
+* If Javascript is disabled in the web browsers, users won't be able to run applications making use of Javascript.
