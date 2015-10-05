@@ -9,4 +9,8 @@
   1. Being a Javascript framework, AngularJS applications are not safe because they won't make use of server side authentication and authorization to keep the applications secure.
   2. If Javascript is disabled in the web browsers, users won't be able to run applications making use of Javascript.
 
+
+##References
+* https://docs.angularjs.org/api/(https://docs.angularjs.org/api/)
+* 
 [previous](Slide16_PromiseExample.md)
