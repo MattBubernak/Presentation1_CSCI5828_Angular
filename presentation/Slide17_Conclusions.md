@@ -8,16 +8,6 @@
 * However, AngularJS does come with it's own set of disadvantages. Going back to the idea provided by Fred Brooks in the article 'No Silver Bullet', even though AngularJS attempts to tackle the issue of complexity around making single page applications, inadvertently, it creates a new set of problems. The following are the disadvantages to using AngularJS:
   1. Being a Javascript framework, AngularJS applications are not safe because they won't make use of server side authentication and authorization to keep the applications secure.
   2. If Javascript is disabled in the web browsers, users won't be able to run applications making use of Javascript.
-[previous](Slide16_PromiseExample.md)
+[previous](Slide16_PromiseExample.md)   [references](Slide18_References.md)
 
-####References
-* https://docs.angularjs.org/api/
-* http://andyshora.com/promises-angularjs-explained-as-cartoon.html
-* https://thinkster.io/a-better-way-to-learn-angularjs/promises
-* https://en.wikipedia.org/wiki/AngularJS
-* http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/
-* http://www.w3schools.com/angular/
-* https://www.youtube.com/channel/UC9ObAKKcpFeHcYiNtnSqbMg (ACCID angular tutorials)
-* http://fdietz.github.io/recipes-with-angular-js/consuming-external-services/requesting-json-data-with-ajax.html
-* The kind souls of stack overflow. 
 
