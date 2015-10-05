@@ -18,5 +18,6 @@
 * http://tylermcginnis.com/angularjs-factory-vs-service-vs-provider/
 * http://www.w3schools.com/angular/
 * https://www.youtube.com/channel/UC9ObAKKcpFeHcYiNtnSqbMg (ACCID angular tutorials)
+* http://fdietz.github.io/recipes-with-angular-js/consuming-external-services/requesting-json-data-with-ajax.html
 * The kind souls of stack overflow. 
 
