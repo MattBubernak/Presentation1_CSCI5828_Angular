@@ -16,3 +16,4 @@
 15. [Promises](Slide15_Promises.md)
 16. [Promise Example](Slide16_PromiseExample.md)
 17. [Conclusion](Slide17_Conclusions.md)
+18. [References](Slide18_References.md)
